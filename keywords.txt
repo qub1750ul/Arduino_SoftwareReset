@@ -1,0 +1,9 @@
+#######################################
+# Class (KEYWORD1)
+# Methods and Functions (KEYWORD2)
+# Constants (LITERAL1)
+#######################################
+
+softwareReset   KEYWORD2
+FULL    LITERAL1
+SIMPLE  LITERAL1
