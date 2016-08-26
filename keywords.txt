@@ -5,5 +5,6 @@
 #######################################
 
 softwareReset   KEYWORD2
-FULL    LITERAL1
-SIMPLE  LITERAL1
+STANDARD    LITERAL1
+ALTERNATIVE  LITERAL1
+SKETCH  LITERAL1

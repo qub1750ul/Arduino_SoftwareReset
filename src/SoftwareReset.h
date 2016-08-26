@@ -1,38 +1,20 @@
-#ifndef SWRST_LIB
-#define SWRST_LIB
+#ifndef _SWRST_LIB
+#define _SWRST_LIB
 
 #include <Arduino.h>
+#include <avr/wdt.h>
 
-#define FULL true
-#define SIMPLE false
+#define STANDARD 0
+#define ALTERNATIVE 1
+#define SKETCH 2
 
-void(* resetFunc) (void) = 0;
+void softwareReset(uint8_t mode);
 
-void softwareReset(bool mode)
-{
-    noInterrupts();
-    
-    if(mode)
-    {
-       PORTA = 0;
-       PORTB = 0;
-       PORTC = 0;
-       PORTD = 0;
-        
-       #ifdef PORTE
-        PORTE = 0;
-        PORTF = 0;
-        PORTG = 0;
-        PORTH = 0;
-        PORTJ = 0;
-        PORTK = 0;
-        PORTL = 0;
-       #endif
-        
-       resetFunc();
-        
-    }
-    else resetFunc();    
-}
+void SWRST_DISABLE(void) __attribute__((naked)) __attribute__((section(".init3"))); //disable software reset after successful reset
+
+void SWRST_STD();
+void SWRST_ALTERNATIVE();
+void SWRST_SKETCH();
+
 
 #endif
