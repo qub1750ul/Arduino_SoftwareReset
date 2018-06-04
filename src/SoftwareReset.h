@@ -1,20 +1,29 @@
-#ifndef _SWRST_LIB
-#define _SWRST_LIB
+#pragma once
 
-#include <Arduino.h>
 #include <avr/wdt.h>
 
-#define STANDARD 0
-#define ALTERNATIVE 1
-#define SKETCH 2
+namespace softwareReset
+	{
+		inline void simple()
+			{
+				asm volatile (" jmp 0");
+			}
 
-void softwareReset(uint8_t mode);
+		inline void standard()
+			{
+				do
+				{
+						wdt_enable(WDTO_15MS);
+						for(;;) {};
 
-void SWRST_DISABLE(void) __attribute__((naked)) __attribute__((section(".init3"))); //disable software reset after successful reset
+				} while(0);
+			}
 
-void SWRST_STD();
-void SWRST_ALTERNATIVE();
-void SWRST_SKETCH();
-
-
-#endif
+		// disable software reset after successful reset
+		void disable() __attribute__((naked)) __attribute__((section(".init3"))) ;
+		void disable()
+			{
+				MCUSR = 0 ;
+				wdt_disable() ;
+			}
+	}
