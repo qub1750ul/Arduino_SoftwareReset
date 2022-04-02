@@ -1,0 +1,42 @@
+= Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on http://keepachangelog.com/en/1.0.0/[Keep a Changelog v1.0.0]
+and this project adheres to http://semver.org/spec/v2.0.0.html[Semantic Versioning v2.0.0].
+
+== [v3.0.1] - 2022-04-02
+=== Fixed
+
+- Removed inappropriate library manifest entry,
+  who was causing linking errors
+
+== [v3.0.0] - 2018-06-05
+=== Changed
+
+- Improved code safety
+- Each reset mode is now executed by a dedicated function
+- This changelog now is based on the
+  http://keepachangelog.com/en/1.0.0/[Keep a Changelog]
+  format
+
+=== Removed
+
+- **Alternative mode** as not reliable
+
+== [v2.0.1] - 2017-09-03
+=== Changed
+
+- Merged pull request #6 : Use correct separator in keywords.txt
+
+== [v2.0.0] - 2016-09-14
+=== Added
+
+- Support for non-Xmega AVR family
+- Official software reset method by Atmel (defined as STANDARD mode)
+
+=== Changed
+
+- Updated license info
+
+== [v1.0.0] - 2016-07-16
+- First release
